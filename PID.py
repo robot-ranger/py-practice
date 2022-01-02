@@ -5,7 +5,7 @@ from simple_pid import PID
 debug = True
 
 
-pid = PID(Kp=0.1, Ki=55, Kd=0.00020, setpoint=0, sample_time=(1/10000))
+pid = PID(Kp=0.1, Ki=55, Kd=0.00020, setpoint=0, sample_time=(1/30000), output_limits=(0,100))
 
 rangeMax = 10000
 current_value = 0
@@ -25,10 +25,11 @@ for i in range(0,rangeMax,1):
 		print("current value: " + str(current_value))
 		print("output value: " + str(output[i]))
 
-xpoints = range(0,rangeMax,1)
+xpoints = np.linspace(0,rangeMax,1)
+print(xpoints)
 
-plt.plot(xpoints, output)
-plt.plot(xpoints, target)
+plt.plot(output)
+plt.plot(target)
 plt.show()
 
 # for i in range(0, rangeMax - 1, 1):
