@@ -5,7 +5,7 @@ from simple_pid import PID
 debug = True
 
 
-pid = PID(Kp=0.2, Ki=0.01, Kd=0.0, setpoint=0)#, output_limits=(0,100)#, sample_time=0.01,)
+pid = PID(Kp=0.1, Ki=55, Kd=0.00020, setpoint=0, sample_time=(1/10000))
 
 rangeMax = 10000
 current_value = 0
